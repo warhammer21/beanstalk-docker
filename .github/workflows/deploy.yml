@@ -42,8 +42,4 @@ jobs:
         aws-region: us-east-2  # AWS region
 
     - name: Deploy to Elastic Beanstalk
-      run: |
-        cd .elasticbeanstalk
-        eb init -p docker ${{ secrets.EB_APP_NAME }} --region us-east-2
-        eb create ${{ secrets.EB_ENV_NAME }}
-        eb deploy ${{ secrets.EB_ENV_NAME }}
+      run: make deploy
