@@ -39,11 +39,11 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ secrets.AWS_REGION }}  # AWS region
+        aws-region: us-east-2  # AWS region
 
     - name: Deploy to Elastic Beanstalk
       run: |
         cd .elasticbeanstalk
-        eb init -p docker ${{ secrets.EB_APP_NAME }} --region ${{ secrets.AWS_REGION }}
+        eb init -p docker ${{ secrets.EB_APP_NAME }} --region us-east-2
         eb create ${{ secrets.EB_ENV_NAME }}
         eb deploy ${{ secrets.EB_ENV_NAME }}
