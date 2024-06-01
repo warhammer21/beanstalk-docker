@@ -5,7 +5,6 @@ on:
     branches:
       - test-changes
 
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
