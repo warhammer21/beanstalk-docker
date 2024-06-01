@@ -13,9 +13,7 @@ docker-build:
 	docker push $(IMAGE_NAME)
 
 # Deploy to Elastic Beanstalk
-
-
-deploy: docker-build docker-push
-	eb init -p docker $(APP_NAME) --region us-east-2
+deploy: docker-build
+	eb init -p docker $(EB_APP_NAME) --region us-east-2
 	eb create $(EB_ENV_NAME) --service-role aws-elasticbeanstalk-ec2-role
 	eb deploy $(EB_ENV_NAME)
